@@ -84,8 +84,8 @@ export default {
     async fetchList() {
       this.isLoading = true;
       try {
-        // let url = `${process.env.BASE_APP_URL}/core/list`
-        let url = `https://zerodha-api.herokuapp.com/core/list`;
+        // let url = `${process.env.BASE_APP_URL}/list`
+        let url = `https://zerodha-api.herokuapp.com/list`;
         if (this.search) {
           url = `${url}?key=${this.search}`;
         }
