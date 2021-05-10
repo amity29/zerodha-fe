@@ -1,23 +1,38 @@
 <template>
   <div>
     <div class="search-wrapper">
-      <b-form-input v-model="search" placeholder="Search .... "></b-form-input>
-      <b-button
-        size="md"
-        class="custom-btn"
-        text="Search"
-        variant="primary"
-        @click="fetchList"
-        >Search</b-button
-      >
-      <b-button
-        size="md"
-        class="custom-btn"
-        text="Clear"
-        variant="outline-primary"
-        @click="clearSearch"
-        >Clear</b-button
-      >
+      <b-row>
+        <b-col col sm="12" md="7">
+          <b-form-input
+            v-model="search"
+            placeholder="Search .... "
+          ></b-form-input>
+        </b-col>
+        <b-col class="action-wrapper" col sm="12" md="5">
+          <b-button
+            size="md"
+            class="custom-btn"
+            text="Search"
+            variant="primary"
+            @click="fetchList"
+            >Search</b-button
+          >
+          <b-button
+            size="md"
+            class="custom-btn"
+            text="Clear"
+            variant="outline-primary"
+            @click="clearSearch"
+            >Clear</b-button
+          >
+          <download-csv
+            class="btn download-btn custom-btn btn-outline-primary btn-md"
+            :data="list"
+          >
+            Download
+          </download-csv>
+        </b-col>
+      </b-row>
     </div>
     <b-table
       id="list-table"
@@ -123,22 +138,24 @@ export default {
   display: flex;
   padding: 30px 0;
 }
+.search-wrapper .row {
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 100%;
+}
+.search-wrapper .row .col {
+  margin-bottom: 10px;
+}
+.action-wrapper {
+  display: flex;
+  padding-right: 0;
+  padding-left: 0;
+}
 .custom-btn {
   margin-left: 10px;
   padding: 0 30px;
 }
-.pagination {
-}
-.active-item {
-  border: 2px solid red;
-}
-.page-link {
-  color: #28a745;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-}
-.page-item.active .page-link {
-  background-color: #28a745;
-  border-color: #28a745;
+.download-btn {
+  padding: 5px 30px;
 }
 </style>
