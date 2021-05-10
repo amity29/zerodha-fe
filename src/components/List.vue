@@ -87,7 +87,7 @@ export default {
         // let url = `${process.env.BASE_APP_URL}/list`
         let url = `https://zerodha-api.herokuapp.com/list`;
         if (this.search) {
-          url = `${url}?key=${this.search}`;
+          url = `${url}?search=${this.search}`;
         }
         const response = await axios.get(url);
         const results = response.data;
